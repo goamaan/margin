@@ -9,9 +9,13 @@ node_modules/
 dist/
 build/
 .output/
+.nitro/
+.tanstack/
 .vinxi/
 .vite/
 coverage/
+.turbo/
+.vercel/
 
 # Environment and secrets
 .env
@@ -24,6 +28,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+*.pem
 
 # Private planning, research, and founder notes
 docs/private/

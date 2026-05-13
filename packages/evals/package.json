@@ -1,0 +1,22 @@
+{
+  "name": "@lantern/evals",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lantern/ai": "workspace:*",
+    "@lantern/domain": "workspace:*",
+    "@lantern/fixtures": "workspace:*",
+    "effect": "^3.21.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
