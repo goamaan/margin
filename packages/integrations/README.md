@@ -1,4 +1,4 @@
-# @lantern/integrations
+# @margin/integrations
 
 Standards and institutional integration adapters.
 

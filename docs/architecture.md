@@ -1,8 +1,8 @@
-# Lantern Architecture
+# Margin Architecture
 
-Lantern is an Effect-first, AI-governed learning management system.
+Margin is an Effect-first, AI-governed learning management system.
 
-Lantern uses a canonical backend API from the beginning. The web app owns routing, SSR, and UI composition, but it consumes the same HTTP API path that future mobile apps, integrations, and external clients will use. Business behavior lives in Effect packages and is exposed through the API layer, not through private framework shortcuts.
+Margin uses a canonical backend API from the beginning. The web app owns routing, SSR, and UI composition, but it consumes the same HTTP API path that future mobile apps, integrations, and external clients will use. Business behavior lives in Effect packages and is exposed through the API layer, not through private framework shortcuts.
 
 ## Runtime Shape
 
@@ -55,7 +55,7 @@ TanStack Start server functions are still available for UI-only or SSR-specific 
 
 ## Backend Layers
 
-Lantern has backend layers, not one backend bucket:
+Margin has backend layers, not one backend bucket:
 
 - Domain: pure, framework-independent LMS concepts and invariants.
 - Application: permissioned use cases and workflows.

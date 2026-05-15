@@ -1,4 +1,4 @@
-# @lantern/testing
+# @margin/testing
 
 Shared testing utilities.
 

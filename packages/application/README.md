@@ -1,4 +1,4 @@
-# @lantern/application
+# @margin/application
 
 Effect application services and use cases.
 

@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { createLanternApiClient } from "@lantern/api/client"
+import { createMarginApiClient } from "@margin/api/client"
 import { Button } from "@workspace/ui/components/button"
 import { Effect } from "effect"
 
 export const Route = createFileRoute("/")({
   component: App,
   loader: async () => {
-    const api = createLanternApiClient({
-      baseUrl: import.meta.env.VITE_LANTERN_API_URL ?? "http://localhost:4000",
+    const api = createMarginApiClient({
+      baseUrl: import.meta.env.VITE_MARGIN_API_URL ?? "http://localhost:4000",
     })
 
     return Effect.runPromise(
@@ -38,10 +38,10 @@ function App() {
     <div className="flex min-h-svh p-6">
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>
-          <h1 className="font-medium">Lantern foundation ready</h1>
+          <h1 className="font-medium">Margin foundation ready</h1>
           <p>TanStack Start is rendering the web app.</p>
           <p>
-            The web app is using the canonical Lantern API path:{" "}
+            The web app is using the canonical Margin API path:{" "}
             {api.ok ? `${api.health.service} ${api.health.status}` : api.message}
           </p>
           <Button className="mt-2">Button</Button>

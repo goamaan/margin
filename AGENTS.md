@@ -1,14 +1,14 @@
-# Lantern Agent Instructions
+# Margin Agent Instructions
 
 ## Project Posture
 
-Lantern is a clean-room, AI-first learning management system. Do not copy source code, migrations, UI text, fixtures, icons, screenshots, or implementation structure from Canvas, Moodle, Blackboard, Brightspace, Cal.com, or any other third-party product.
+Margin is a clean-room, AI-first learning management system. Do not copy source code, migrations, UI text, fixtures, icons, screenshots, or implementation structure from Canvas, Moodle, Blackboard, Brightspace, Cal.com, or any other third-party product.
 
 Build original code from first principles while using public behavior, public standards, official documentation, and vendored reference source as learning material.
 
 ## Effect-First Rule
 
-Lantern application code should be Effect-first. Use Effect for domain workflows, services, dependency injection, typed errors, schemas, async orchestration, retries, interruption, observability, tests, and AI/eval pipelines.
+Margin application code should be Effect-first. Use Effect for domain workflows, services, dependency injection, typed errors, schemas, async orchestration, retries, interruption, observability, tests, and AI/eval pipelines.
 
 Avoid writing ad hoc promise/error plumbing where an Effect pattern is available. Prefer small, composable Effect services and typed domain errors over broad imperative modules.
 
@@ -27,7 +27,7 @@ When writing Effect code, inspect `repos/effect/` for idiomatic usage, tests, mo
 
 If `repos/effect/LLMS.md` exists, read it before writing Effect code.
 
-## Lantern Feature Standard
+## Margin Feature Standard
 
 For each feature or vertical slice:
 

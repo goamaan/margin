@@ -1,5 +1,5 @@
 {
-  "name": "@lantern/evals",
+  "name": "@margin/evals",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -8,9 +8,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lantern/ai": "workspace:*",
-    "@lantern/domain": "workspace:*",
-    "@lantern/fixtures": "workspace:*",
+    "@margin/ai": "workspace:*",
+    "@margin/domain": "workspace:*",
+    "@margin/fixtures": "workspace:*",
     "effect": "4.0.0-beta.66"
   },
   "devDependencies": {

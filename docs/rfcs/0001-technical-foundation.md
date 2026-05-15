@@ -5,7 +5,7 @@ Date: 2026-05-13.
 
 ## Problem
 
-Lantern needs a foundation that can support a serious LMS over multiple months: multi-tenant records, permissions, audit logs, AI governance, evals, integrations, and a modern UI. The architecture should be slightly future-proof without forcing premature distributed systems.
+Margin needs a foundation that can support a serious LMS over multiple months: multi-tenant records, permissions, audit logs, AI governance, evals, integrations, and a modern UI. The architecture should be slightly future-proof without forcing premature distributed systems.
 
 ## Decision
 
@@ -13,21 +13,21 @@ Use a Bun workspace monorepo with TanStack Start for `apps/web`, a canonical bac
 
 The initial package boundaries are:
 
-- `@lantern/domain`
-- `@lantern/application`
-- `@lantern/runtime`
-- `@lantern/db`
-- `@lantern/ai`
-- `@lantern/api`
-- `@lantern/evals`
-- `@lantern/integrations`
-- `@lantern/fixtures`
-- `@lantern/testing`
+- `@margin/domain`
+- `@margin/application`
+- `@margin/runtime`
+- `@margin/db`
+- `@margin/ai`
+- `@margin/api`
+- `@margin/evals`
+- `@margin/integrations`
+- `@margin/fixtures`
+- `@margin/testing`
 - `@workspace/ui`
 
 ## Web and HTTP API
 
-`apps/web` renders the first-party web experience and consumes Lantern through the shared API client. It should not contain domain logic and should not bypass the backend API for core LMS workflows.
+`apps/web` renders the first-party web experience and consumes Margin through the shared API client. It should not contain domain logic and should not bypass the backend API for core LMS workflows.
 
 `apps/api` is the canonical HTTP API runtime. `packages/api` owns response schemas, typed client helpers, and server adapters. This gives the web app, future mobile clients, LTI/SIS integrations, and external consumers one enforceable backend path.
 

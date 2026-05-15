@@ -1,5 +1,5 @@
 {
-  "name": "@lantern/runtime",
+  "name": "@margin/runtime",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -8,11 +8,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lantern/ai": "workspace:*",
-    "@lantern/application": "workspace:*",
-    "@lantern/db": "workspace:*",
-    "@lantern/domain": "workspace:*",
-    "@lantern/integrations": "workspace:*",
+    "@margin/ai": "workspace:*",
+    "@margin/application": "workspace:*",
+    "@margin/db": "workspace:*",
+    "@margin/domain": "workspace:*",
+    "@margin/integrations": "workspace:*",
     "effect": "4.0.0-beta.66"
   },
   "devDependencies": {

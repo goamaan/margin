@@ -1,4 +1,4 @@
-# @lantern/fixtures
+# @margin/fixtures
 
 Synthetic education fixtures.
 

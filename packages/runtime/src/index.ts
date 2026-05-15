@@ -1,8 +1,8 @@
-import { HealthService } from "@lantern/application"
+import { HealthService } from "@margin/application"
 import { Layer, ManagedRuntime } from "effect"
 
-export const LanternLiveLayer = Layer.mergeAll(HealthService.layer)
+export const MarginLiveLayer = Layer.mergeAll(HealthService.layer)
 
-export function makeLanternRuntime() {
-  return ManagedRuntime.make(LanternLiveLayer)
+export function makeMarginRuntime() {
+  return ManagedRuntime.make(MarginLiveLayer)
 }

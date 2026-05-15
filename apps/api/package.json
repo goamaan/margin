@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lantern/api": "workspace:*",
-    "@lantern/runtime": "workspace:*",
+    "@margin/api": "workspace:*",
+    "@margin/runtime": "workspace:*",
     "effect": "4.0.0-beta.66"
   },
   "devDependencies": {

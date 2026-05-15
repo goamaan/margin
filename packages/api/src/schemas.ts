@@ -2,7 +2,7 @@ import { Schema } from "effect"
 
 export class SystemHealthResponse extends Schema.Class<SystemHealthResponse>("SystemHealthResponse")({
   environment: Schema.String,
-  service: Schema.Literal("lantern-api"),
+  service: Schema.Literal("margin-api"),
   status: Schema.Literal("ok"),
   timestamp: Schema.String,
   version: Schema.String,

@@ -1,4 +1,4 @@
-# @lantern/domain
+# @margin/domain
 
 Framework-independent LMS domain model.
 

@@ -1,21 +1,21 @@
-import { HealthService } from "@lantern/application"
+import { HealthService } from "@margin/application"
 import { Effect } from "effect"
 import { Hono } from "hono"
 import { cors } from "hono/cors"
 
-export interface LanternApiAppOptions {
+export interface MarginApiAppOptions {
   readonly runtime: {
     runPromise<A, E>(effect: Effect.Effect<A, E, HealthService>): Promise<A>
   }
 }
 
-export function createLanternApiApp(options: LanternApiAppOptions): Hono {
+export function createMarginApiApp(options: MarginApiAppOptions): Hono {
   const app = new Hono()
 
   app.use(
     "/v1/*",
     cors({
-      allowHeaders: ["authorization", "content-type", "x-lantern-tenant"],
+      allowHeaders: ["authorization", "content-type", "x-margin-tenant"],
       allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       credentials: true,
       origin: ["http://localhost:3000"],

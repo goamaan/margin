@@ -1,4 +1,4 @@
-# Lantern Worker App
+# Margin Worker App
 
 Reserved for future background workers.
 

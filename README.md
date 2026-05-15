@@ -1,6 +1,6 @@
-# Lantern
+# Margin
 
-Lantern is an AI-first learning management system built from first principles.
+Margin is an AI-first learning management system built from first principles.
 
 This repository starts as a Bun workspace monorepo with TanStack Start, shadcn/ui, and an Effect-first application architecture.
 

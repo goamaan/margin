@@ -5,7 +5,7 @@ Date: 2026-05-13.
 
 ## Context
 
-Lantern needs strong boundaries for permissions, auditability, AI governance, evals, integrations, and future deployment modes. A single app folder would be fast initially but would encourage framework-bound business logic.
+Margin needs strong boundaries for permissions, auditability, AI governance, evals, integrations, and future deployment modes. A single app folder would be fast initially but would encourage framework-bound business logic.
 
 ## Decision
 

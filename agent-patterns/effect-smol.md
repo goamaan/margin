@@ -1,9 +1,9 @@
-# Effect Agent Patterns for Lantern
+# Effect Agent Patterns for Margin
 
 Status: agent reference.  
 Source of truth: `repos/effect/`.
 
-Before writing Lantern Effect code:
+Before writing Margin Effect code:
 
 1. Read `repos/effect/LLMS.md`.
 2. Check `repos/effect/ai-docs/src/` for a close example.
@@ -32,9 +32,9 @@ Before writing Lantern Effect code:
 - Use `Context.Reference` for configuration values and feature flags with defaults.
 - Use deterministic test layers for repositories, clocks, AI providers, and audit/event emitters.
 
-## Lantern Application Rule
+## Margin Application Rule
 
-Lantern app code should be Effect-first across the stack:
+Margin app code should be Effect-first across the stack:
 
 - Domain commands and queries are Effects.
 - Server handlers and server functions run Effect programs through a managed runtime.
@@ -85,4 +85,4 @@ git subtree pull \
   --squash
 ```
 
-Keep `repos/effect` as reference material. Do not edit it for Lantern behavior.
+Keep `repos/effect` as reference material. Do not edit it for Margin behavior.

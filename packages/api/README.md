@@ -1,8 +1,8 @@
-# @lantern/api
+# @margin/api
 
 Canonical HTTP API contract, client, and server adapter.
 
-Owns durable API contracts, endpoint schemas, client helpers, middleware contracts, OpenAPI documentation hooks, and handlers that call `@lantern/application`.
+Owns durable API contracts, endpoint schemas, client helpers, middleware contracts, OpenAPI documentation hooks, and handlers that call `@margin/application`.
 
 The web app should consume this package's client against `apps/api`, the same path future mobile apps, integrations, and external clients will use.
 

@@ -1,4 +1,4 @@
-# @lantern/ai
+# @margin/ai
 
 AI primitives and provider boundaries.
 

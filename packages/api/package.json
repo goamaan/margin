@@ -1,5 +1,5 @@
 {
-  "name": "@lantern/api",
+  "name": "@margin/api",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -8,8 +8,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lantern/application": "workspace:*",
-    "@lantern/domain": "workspace:*",
+    "@margin/application": "workspace:*",
+    "@margin/domain": "workspace:*",
     "effect": "4.0.0-beta.66",
     "hono": "^4.11.2"
   },

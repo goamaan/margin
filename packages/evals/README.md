@@ -1,4 +1,4 @@
-# @lantern/evals
+# @margin/evals
 
 AI and workflow evaluation harnesses.
 
