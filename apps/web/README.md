@@ -2,6 +2,6 @@
 
 TanStack Start app for the Lantern first-party web experience.
 
-This app is the BFF and rendering edge. Keep LMS business rules in `packages/application` and `packages/domain`, then call them through `packages/runtime` from server functions or server routes.
+This app owns rendering, routing, SSR, and route-level UX. It consumes Lantern through the shared API client in `@lantern/api`, against the canonical API served by `apps/api`.
 
-Use `packages/api` only when the route is a durable HTTP boundary for external clients, standards integrations, or future standalone API deployment.
+Do not put core LMS workflows behind private TanStack Start server functions. Anything that touches education records, tenants, permissions, AI policy, audit logs, integrations, or admin controls belongs behind `apps/api`.

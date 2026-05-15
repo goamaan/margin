@@ -1,7 +1,9 @@
 # @lantern/api
 
-Schema-first HTTP API boundary.
+Canonical HTTP API contract, client, and server adapter.
 
-Owns durable API contracts, endpoint schemas, middleware contracts, OpenAPI documentation hooks, and handlers that call `@lantern/application`.
+Owns durable API contracts, endpoint schemas, client helpers, middleware contracts, OpenAPI documentation hooks, and handlers that call `@lantern/application`.
 
-The web app should prefer TanStack Start server functions for first-party BFF flows. Use this package for public APIs, integrations, mobile clients, webhooks, and future standalone API deployment.
+The web app should consume this package's client against `apps/api`, the same path future mobile apps, integrations, and external clients will use.
+
+TanStack Start can still handle SSR and route-level UI, but it should not bypass this API for core LMS workflows.

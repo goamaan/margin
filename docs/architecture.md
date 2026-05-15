@@ -2,13 +2,16 @@
 
 Lantern is an Effect-first, AI-governed learning management system.
 
-The web app is a TanStack Start BFF: it owns routing, SSR, route loaders, server functions, and UI composition. It should not own LMS business rules. Business behavior lives in Effect packages that can also be reused later by workers, public APIs, import jobs, eval runners, and private-cloud deployments.
+Lantern uses a canonical backend API from the beginning. The web app owns routing, SSR, and UI composition, but it consumes the same HTTP API path that future mobile apps, integrations, and external clients will use. Business behavior lives in Effect packages and is exposed through the API layer, not through private framework shortcuts.
 
 ## Runtime Shape
 
 ```txt
 apps/web
-  TanStack Start app, BFF, SSR, server functions, route-level UX
+  TanStack Start app, SSR, route-level UX, API client consumer
+
+apps/api
+  Canonical HTTP API runtime
 
 packages/ui
   shadcn-owned design system components
@@ -29,7 +32,7 @@ packages/ai
   AI primitives, provider interfaces, retrieval contracts, policy checks
 
 packages/api
-  schema-first HTTP API definitions and handlers for public/integration clients
+  HTTP API schemas, typed client, and server adapter
 
 packages/integrations
   LTI, OneRoster, SSO, SIS, SCORM/xAPI/cmi5 adapters
@@ -44,11 +47,11 @@ packages/testing
   shared test layers, clocks, fixtures, and assertions
 ```
 
-## BFF and API Boundary
+## API Boundary
 
-The frontend should call TanStack Start server functions for first-party app flows. Those server functions should immediately enter the Effect runtime and call application services.
+The frontend should call `apps/api` through the shared client in `packages/api`. This keeps first-party web behavior on the same path as mobile clients, standards integrations, webhooks, and external APIs.
 
-Lantern will also keep a separate `packages/api` boundary for schema-first HTTP APIs. This is for external clients, standards integrations, future mobile clients, and possible standalone API deployment. Do not duplicate business logic in route handlers or REST controllers.
+TanStack Start server functions are still available for UI-only or SSR-specific concerns, but they should not bypass the canonical API for core LMS workflows. Anything that touches education records, tenant state, permissions, AI policy, audit logs, integrations, or admin controls belongs behind the API/application/runtime path.
 
 ## Backend Layers
 
@@ -58,6 +61,6 @@ Lantern has backend layers, not one backend bucket:
 - Application: permissioned use cases and workflows.
 - Runtime: live/test layer composition.
 - Infrastructure: database, AI providers, integration adapters, observability, queues.
-- Edge apps: TanStack Start BFF today; workers and API apps later.
+- Edge apps: TanStack Start web app, canonical API app, workers later.
 
 AI is not a separate product bolted onto the side. It is a package boundary and service family used by application workflows under policy, provenance, eval, and audit controls.

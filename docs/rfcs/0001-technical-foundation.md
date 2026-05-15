@@ -9,7 +9,7 @@ Lantern needs a foundation that can support a serious LMS over multiple months: 
 
 ## Decision
 
-Use a Bun workspace monorepo with TanStack Start for `apps/web`, shadcn/ui in `packages/ui`, and Effect-first backend/application packages under `packages/*`.
+Use a Bun workspace monorepo with TanStack Start for `apps/web`, a canonical backend API in `apps/api`, shadcn/ui in `packages/ui`, and Effect-first backend/application packages under `packages/*`.
 
 The initial package boundaries are:
 
@@ -25,11 +25,11 @@ The initial package boundaries are:
 - `@lantern/testing`
 - `@workspace/ui`
 
-## BFF vs HTTP API
+## Web and HTTP API
 
-`apps/web` is the first-party BFF. It should use TanStack Start server functions and server routes where appropriate, but it should not contain domain logic.
+`apps/web` renders the first-party web experience and consumes Lantern through the shared API client. It should not contain domain logic and should not bypass the backend API for core LMS workflows.
 
-`packages/api` is reserved for schema-first HTTP API definitions and handlers. It exists so the same application services can later be exposed to integrations, mobile clients, public APIs, or a standalone API app without rewriting the backend.
+`apps/api` is the canonical HTTP API runtime. `packages/api` owns response schemas, typed client helpers, and server adapters. This gives the web app, future mobile clients, LTI/SIS integrations, and external consumers one enforceable backend path.
 
 ## Effect Rules
 
@@ -44,7 +44,8 @@ All meaningful application behavior should be represented as Effect programs and
 - integrations
 - persistence adapters
 - background jobs
-- server function handlers
+- API handlers
+- route loaders that call the API client
 
 React components render UI. They should not accumulate LMS business logic.
 
@@ -52,10 +53,10 @@ React components render UI. They should not accumulate LMS business logic.
 
 - No database selection yet.
 - No auth provider selection yet.
-- No public REST contract yet.
+- No full public REST contract yet beyond `/v1/system/health`.
 - No AI provider selection yet.
 - No worker or standalone API runtime yet.
 
 ## Consequences
 
-This creates more packages than a tiny prototype needs, but it gives agents clear ownership boundaries and keeps future API/worker/private-cloud options open.
+This creates more packages than a tiny prototype needs, but it gives agents clear ownership boundaries, keeps compliance controls centralized, and avoids having to migrate the web app off private server functions later.

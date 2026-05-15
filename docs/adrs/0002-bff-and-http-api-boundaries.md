@@ -1,18 +1,20 @@
-# ADR 0002: BFF and HTTP API Boundaries
+# ADR 0002: Canonical HTTP API Boundary
 
 Status: accepted.  
 Date: 2026-05-13.
 
 ## Context
 
-TanStack Start supports server functions and server routes. Lantern also needs future interoperability with external tools, standards, mobile clients, and possible standalone services.
+TanStack Start supports server functions and server routes. Lantern also needs durable backend boundaries for compliance, auditability, tenant isolation, external tools, standards, mobile clients, and possible standalone services.
 
 ## Decision
 
-Use TanStack Start as the first-party BFF for the web app. Use `packages/api` for schema-first HTTP API contracts and handlers when an external or durable HTTP boundary is needed.
+Use `apps/api` as Lantern's canonical HTTP API runtime from the beginning. Use `packages/api` for API schemas, typed client helpers, and server adapters. The web app should consume this API path rather than private server functions for core LMS workflows.
 
-Server functions should call Effect application services through the runtime layer. Public HTTP routes should call the same services. Neither should contain core LMS business logic.
+API handlers call Effect application services through the runtime layer. TanStack Start server functions are reserved for UI-only or SSR-specific concerns and must not own LMS business logic.
 
 ## Consequences
 
-The web app can use type-safe first-party server functions without prematurely committing every interaction to REST. We still reserve a clean API path for LTI, SIS, mobile, external integrations, and later deployment splits.
+The web app exercises the same path that future mobile clients, LTI/SIS integrations, and public API consumers will use. Auth, tenant checks, audit, policy, and observability can be centralized earlier.
+
+The tradeoff is slightly more setup in development because `apps/web` and `apps/api` run as separate processes.

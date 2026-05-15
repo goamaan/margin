@@ -6,8 +6,8 @@ This repository starts as a Bun workspace monorepo with TanStack Start, shadcn/u
 
 ## Architecture
 
-- `apps/web`: TanStack Start web app and BFF.
-- `apps/api`: reserved for a future standalone HTTP API runtime.
+- `apps/web`: TanStack Start web app, SSR, and route-level UX.
+- `apps/api`: canonical HTTP API runtime.
 - `apps/worker`: reserved for future background workers.
 - `packages/ui`: shadcn/ui component package.
 - `packages/domain`: domain schemas, value objects, errors, events, and invariants.
@@ -15,7 +15,7 @@ This repository starts as a Bun workspace monorepo with TanStack Start, shadcn/u
 - `packages/runtime`: Effect layer composition and framework bridges.
 - `packages/db`: persistence adapters and migrations.
 - `packages/ai`: AI primitives, provider boundaries, policy checks, and retrieval contracts.
-- `packages/api`: schema-first HTTP API contracts and handlers.
+- `packages/api`: API schemas, typed client helpers, and server adapter.
 - `packages/integrations`: LTI, OneRoster, SSO, SIS, and import/export adapters.
 - `packages/evals`: evaluation harnesses and scoring.
 - `packages/fixtures`: synthetic school data and edge cases.
@@ -29,6 +29,11 @@ See `docs/architecture.md` and `docs/rfcs/0001-technical-foundation.md`.
 bun install
 bun run dev
 ```
+
+The dev command runs both the web app and API:
+
+- Web: `http://localhost:3000`
+- API: `http://localhost:4000`
 
 Useful checks:
 

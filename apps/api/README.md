@@ -1,5 +1,13 @@
-# Lantern API App
+# Lantern API
 
-Reserved for a future standalone HTTP API runtime.
+Standalone backend API runtime.
 
-Do not add code here until `packages/api` has a real schema-first contract that needs a separate deployment from `apps/web`.
+This app exposes Lantern's canonical HTTP API. The web app, future mobile apps, integrations, and external clients should all use this API path rather than private framework server functions for core LMS workflows.
+
+Development:
+
+```bash
+bun run --filter api dev
+```
+
+Default URL: `http://localhost:4000`.

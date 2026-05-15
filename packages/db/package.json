@@ -10,7 +10,7 @@
   "dependencies": {
     "@lantern/application": "workspace:*",
     "@lantern/domain": "workspace:*",
-    "effect": "^3.21.2"
+    "effect": "4.0.0-beta.66"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
