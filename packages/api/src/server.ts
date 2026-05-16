@@ -1,13 +1,17 @@
 import { HealthService } from "@margin/application"
-import { Effect } from "effect"
+import { Effect, Schema } from "effect"
 import { Hono } from "hono"
 import { cors } from "hono/cors"
+import { ApiErrorResponse, SystemHealthResponse } from "./schemas"
 
 export interface MarginApiAppOptions {
   readonly runtime: {
-    runPromise<A, E>(effect: Effect.Effect<A, E, HealthService>): Promise<A>
+    runPromise<A>(effect: Effect.Effect<A, never, HealthService>): Promise<A>
   }
 }
+
+const encodeSystemHealthResponse = Schema.encodeSync(SystemHealthResponse)
+const encodeApiErrorResponse = Schema.encodeSync(ApiErrorResponse)
 
 export function createMarginApiApp(options: MarginApiAppOptions): Hono {
   const app = new Hono()
@@ -27,15 +31,15 @@ export function createMarginApiApp(options: MarginApiAppOptions): Hono {
       HealthService.use((service) => service.getHealth)
     )
 
-    return context.json(health)
+    return context.json(encodeSystemHealthResponse(health))
   })
 
   app.notFound((context) =>
     context.json(
-      {
+      encodeApiErrorResponse({
         code: "not_found",
         message: "Route not found",
-      },
+      }),
       404
     )
   )
@@ -45,10 +49,10 @@ export function createMarginApiApp(options: MarginApiAppOptions): Hono {
       Effect.logError("Unhandled API error", error).pipe(
         Effect.as(
           context.json(
-            {
+            encodeApiErrorResponse({
               code: "internal_server_error",
               message: "Internal server error",
-            },
+            }),
             500
           )
         )

@@ -42,7 +42,9 @@ function App() {
           <p>TanStack Start is rendering the web app.</p>
           <p>
             The web app is using the canonical Margin API path:{" "}
-            {api.ok ? `${api.health.service} ${api.health.status}` : api.message}
+            {api.ok
+              ? `${api.health.service} ${api.health.status}`
+              : api.message}
           </p>
           <Button className="mt-2">Button</Button>
         </div>
